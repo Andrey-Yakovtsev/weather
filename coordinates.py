@@ -11,6 +11,7 @@ class Coordinates:
     latitude: float
     longitude: float
 
+# To check commits
 
 def get_gps_coordinates() -> Coordinates:
     """Returns current coordinates using MacBook GPS"""
