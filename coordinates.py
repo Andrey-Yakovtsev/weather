@@ -18,27 +18,41 @@ def get_gps_coordinates() -> Coordinates:
     coordinates = _get_whereami_coordinates()
     return _round_coordinates(coordinates)
 
+# Было
+# def _get_whereami_coordinates() -> Coordinates:
+#     whereami_output = _get_whereami_output()
+#     coordinates = _parse_coordinates(whereami_output)
+#     return coordinates
 def _get_whereami_coordinates() -> Coordinates:
-    whereami_output = _get_whereami_output()
-    coordinates = _parse_coordinates(whereami_output)
+    coordinates = _parse_coordinates()
     return coordinates
 
 def _get_whereami_output() -> bytes:
+    """
+    Вызов метода выпилен
+    """
     process = Popen(["whereami"], stdout=PIPE)
     output, err = process.communicate()
     exit_code = process.wait()
     if err is not None or exit_code != 0:
         raise CantGetCoordinates
     return output
+# Было
+# def _parse_coordinates(whereami_output: bytes) -> Coordinates:
+    # try:
+    #     output = whereami_output.decode().strip().lower().split("\n")
+    # except UnicodeDecodeError:
+    #     raise CantGetCoordinates
+    # return Coordinates(
+        # latitude=_parse_coord(output, "latitude"),
+        # longitude=_parse_coord(output, "longitude")
+    # )
 
-def _parse_coordinates(whereami_output: bytes) -> Coordinates:
-    try:
-        output = whereami_output.decode().strip().lower().split("\n")
-    except UnicodeDecodeError:
-        raise CantGetCoordinates
+# Стало с хардкодными координатами
+def _parse_coordinates() -> Coordinates:
     return Coordinates(
-        latitude=_parse_coord(output, "latitude"),
-        longitude=_parse_coord(output, "longitude")
+        latitude=25.183366,
+        longitude=55.255616
     )
 
 def _parse_coord(
