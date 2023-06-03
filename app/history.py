@@ -3,8 +3,8 @@ from datetime import datetime
 from pathlib import Path
 from typing import Protocol, TypedDict
 
-from weather_api_service import Weather
-from weather_formatter import format_weather
+from app.weather_api_service import Weather
+from app.weather_formatter import format_weather
 
 
 class WeatherStorage(Protocol):

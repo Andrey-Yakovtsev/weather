@@ -7,7 +7,7 @@ from subprocess import PIPE, Popen
 from typing import Literal
 
 import config
-from exceptions import CantGetCoordinates
+from app.exceptions import CantGetCoordinates
 
 
 @dataclass(slots=True, frozen=True)
@@ -25,7 +25,7 @@ def get_gps_coordinates() -> Coordinates:
     return _round_coordinates(coordinates)
 
 
-# Было
+# Было      #NOSONAR
 # def _get_whereami_coordinates() -> Coordinates:
 #     whereami_output = _get_whereami_output()
 #     coordinates = _parse_coordinates(whereami_output)

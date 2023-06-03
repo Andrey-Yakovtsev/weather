@@ -1,11 +1,11 @@
-#!/usr/bin/env python3.10
+#!/usr/bin/env python3.11
 from pathlib import Path
 
-from coordinates import get_gps_coordinates
-from exceptions import ApiServiceError, CantGetCoordinates
-from history import JSONFileWeatherStorage, save_weather
-from weather_api_service import get_weather
-from weather_formatter import format_weather
+from app.coordinates import get_gps_coordinates
+from app.exceptions import ApiServiceError, CantGetCoordinates
+from app.history import JSONFileWeatherStorage, save_weather
+from app.weather_api_service import get_weather
+from app.weather_formatter import format_weather
 
 
 def main():
