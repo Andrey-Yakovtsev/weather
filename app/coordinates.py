@@ -7,6 +7,7 @@ from subprocess import PIPE, Popen
 from typing import Literal
 
 import config
+
 from app.exceptions import CantGetCoordinates
 
 
@@ -16,11 +17,11 @@ class Coordinates:
     longitude: float
 
 
-
 def get_gps_coordinates() -> Coordinates:
     """Returns current coordinates using MacBook GPS"""
     coordinates = _get_whereami_coordinates()
     return _round_coordinates(coordinates)
+
 
 # Было      #NOSONAR
 # def _get_whereami_coordinates() -> Coordinates:
@@ -60,6 +61,7 @@ def _get_whereami_output() -> bytes:
 def _parse_coordinates() -> Coordinates:
     return Coordinates(latitude=25.183366, longitude=55.255616)
 
+
 def _parse_coord(
     output: list[str], coord_type: Literal["latitude"] | Literal["longitude"]
 ) -> float:
@@ -68,11 +70,13 @@ def _parse_coord(
             return _parse_float_coordinate(line.split()[1])
     raise CantGetCoordinates
 
+
 def _parse_float_coordinate(value: str) -> float:
     try:
         return float(value)
     except ValueError:
         raise CantGetCoordinates  # pylint: disable=raise-missing-from
+
 
 def _round_coordinates(coordinates: Coordinates) -> Coordinates:
     if not config.USE_ROUNDED_COORDS:
@@ -84,6 +88,3 @@ def _round_coordinates(coordinates: Coordinates) -> Coordinates:
 
 if __name__ == "__main__":
     print(get_gps_coordinates())
-
-
-
