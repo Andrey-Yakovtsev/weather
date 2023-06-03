@@ -12,13 +12,18 @@ pylint = "^2.17.4"
 black = "^23.3.0"
 pre-commit = "^3.3.2"
 python-dotenv = "^1.0.0"
+bandit = {extras = ["toml"], version = "^1.7.5"}
+autoflake = "^2.1.1"
 
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
-#PYLINT CONFIG
+
+###############################
+###   PYLINT CONFIG START   ###
+###############################
 
 [tool.pylint.main]
 # Analyse import fallback blocks. This can be used to support both Python 2 and 3
@@ -548,3 +553,7 @@ ignored-argument-names = "_.*|^ignored_|^unused_"
 # List of qualified module names which can have objects that can redefine
 # builtins.
 redefining-builtins-modules = ["six.moves", "past.builtins", "future.builtins", "builtins", "io"]
+
+#############################
+###   PYLINT CONFIG END   ###
+#############################
