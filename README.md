@@ -26,6 +26,12 @@
 3. установить Хук: pre-commit install
 
 
+что доделать:
+1. Накинуть хуки: Автофлейк, pytest, mypy
+2. починить Хук депендансей поетри
+3. Конфиги собрать в toml для: black, isort, bandit, mypy
+4. семпловые тесты написать аппы
+
 
 
 [![linting: pylint](https://img.shields.io/badge/linting-pylint-yellowgreen)](https://github.com/pylint-dev/pylint)
