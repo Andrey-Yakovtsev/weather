@@ -1,7 +1,6 @@
 """
 Получение и обработка координат GPS
 """
-
 from dataclasses import dataclass
 from subprocess import PIPE, Popen
 from typing import Literal

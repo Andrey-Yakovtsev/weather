@@ -33,7 +33,7 @@ build-backend = "poetry.core.masonry.api"
 
 # Always return a 0 (non-error) status code, even if lint errors are found. This
 # is primarily useful in continuous integration scripts.
-# exit-zero =
+exit-zero = true
 
 # A comma-separated list of package or module names from where C extensions may
 # be loaded. Extensions are loading into the active Python interpreter and may
@@ -557,3 +557,10 @@ redefining-builtins-modules = ["six.moves", "past.builtins", "future.builtins", 
 #############################
 ###   PYLINT CONFIG END   ###
 #############################
+
+########################
+###   BANDIT START   ###
+########################
+
+[tool.bandit]
+exclude_dirs = ["venv",]

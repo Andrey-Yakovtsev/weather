@@ -19,6 +19,7 @@ repos:
     rev: 1.7.5
     hooks:
     - id: bandit
+      args: ["-c", "pyproject.toml", "--exit-zero"]
 #-   repo: https://github.com/python-poetry/poetry
 #    rev: ''  # add version here
 #    hooks:

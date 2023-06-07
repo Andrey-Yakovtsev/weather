@@ -9,6 +9,7 @@ from typing import Literal, TypeAlias
 from urllib.error import URLError
 
 import config
+
 from app.coordinates import Coordinates
 from app.exceptions import ApiServiceError
 
